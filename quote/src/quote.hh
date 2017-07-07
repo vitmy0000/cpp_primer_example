@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace cpp_primer {
+
 class Quote {
  public:
   Quote() = default;
@@ -16,5 +18,7 @@ class Quote {
  protected:
   double sale_price_ = 0.0;  // normal, undiscounted price
 };
+
+} // cpp_primer
 
 #endif /* ifndef QUOTE_HH */

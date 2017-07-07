@@ -3,6 +3,8 @@
 
 #include "quote.hh"
 
+namespace cpp_primer {
+
 class BulkQuote : public Quote {
  public:
   BulkQuote() = default;
@@ -12,5 +14,7 @@ class BulkQuote : public Quote {
   std::size_t min_qty_ = 0;
   double discount_ = 0.0;
 };
+
+} // cpp_primer
 
 #endif /* ifndef BULK_QUOTE_HH */

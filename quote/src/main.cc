@@ -7,6 +7,7 @@ using std::ostream;
 using std::size_t;
 using std::cout;
 using std::endl;
+using namespace cpp_primer;
 
 double print_total(ostream& os, const Quote& item, size_t n) {
   double ret = item.net_price(n);
