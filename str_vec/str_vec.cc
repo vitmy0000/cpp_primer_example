@@ -56,14 +56,6 @@ void StrVec::push_back(string&& s) {
   alloc.construct(first_free_++, std::move(s));
 }
 
-inline size_t StrVec::size() const { return first_free_ - elements_; }
-
-inline size_t StrVec::capacity() const { return cap_ - elements_; }
-
-inline string* StrVec::begin() const { return elements_; }
-
-inline string* StrVec::end() const { return first_free_; }
-
 // -- private --
 allocator<string> StrVec::alloc; // static member data
 

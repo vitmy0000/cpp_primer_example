@@ -7,7 +7,7 @@ namespace cpp_primer {
 
 class BulkQuote : public Quote {
  public:
-  BulkQuote() = default;
+  BulkQuote();
   BulkQuote(const std::string&, double, std::size_t, double);
   virtual double net_price(std::size_t) const override;
  private:
@@ -17,4 +17,4 @@ class BulkQuote : public Quote {
 
 } // cpp_primer
 
-#endif /* ifndef BULK_QUOTE_HH */
+#endif

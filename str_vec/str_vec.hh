@@ -16,6 +16,7 @@ class StrVec {
   ~StrVec();
   void push_back(const std::string&); // copy the element
   void push_back(std::string&&); // move the element
+  // getters & setters
   size_t size() const;
   size_t capacity() const;
   std::string* begin() const;
@@ -34,6 +35,11 @@ class StrVec {
   std::string* first_free_; // pointer to the first free element in the array
   std::string* cap_; // pointer to one past the end of the array
 };
+
+inline std::size_t StrVec::size() const { return first_free_ - elements_; }
+inline std::size_t StrVec::capacity() const { return cap_ - elements_; }
+inline std::string* StrVec::begin() const { return elements_; }
+inline std::string* StrVec::end() const { return first_free_; }
 
 } // cpp_primer
 
