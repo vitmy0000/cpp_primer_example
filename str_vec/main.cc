@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-  StrVec str_vec;
+  cpp_primer::StrVec str_vec;
   return 0;
 }

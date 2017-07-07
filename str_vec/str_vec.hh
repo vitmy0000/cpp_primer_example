@@ -4,6 +4,8 @@
 #include <memory>
 #include <string>
 
+namespace cpp_primer {
+
 class StrVec {
  public:
   StrVec();
@@ -33,5 +35,7 @@ class StrVec {
   std::string* first_free_; // pointer to the first free element in the array
   std::string* cap_; // pointer to one past the end of the array
 };
+
+} // cpp_primer
 
 #endif

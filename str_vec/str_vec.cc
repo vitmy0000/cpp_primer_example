@@ -7,6 +7,8 @@ using std::allocator;
 using std::string;
 using std::pair;
 
+namespace cpp_primer {
+
 allocator<string> StrVec::alloc; // default init; call default constructor
 
 StrVec::StrVec() : elements_{nullptr}, first_free_{nullptr}, cap_{nullptr} {}
@@ -109,5 +111,5 @@ void StrVec::reallocate() {
   cap_ = elements_ + new_capacity;
 }
 
-
+} // cpp_primer
 
