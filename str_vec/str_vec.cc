@@ -9,8 +9,7 @@ using std::pair;
 
 namespace cpp_primer {
 
-allocator<string> StrVec::alloc; // default init; call default constructor
-
+// -- public --
 StrVec::StrVec() : elements_{nullptr}, first_free_{nullptr}, cap_{nullptr} {}
 
 StrVec::StrVec(const StrVec& s) {
@@ -45,25 +44,7 @@ StrVec& StrVec::operator=(StrVec&& rhs) noexcept {
   return *this;
 }
 
-StrVec::~StrVec() {
-  free();
-}
-
-size_t StrVec::size() const {
-  return first_free_ - elements_;
-}
-
-size_t StrVec::capacity() const {
-  return cap_ - elements_;
-}
-
-string* StrVec::begin() const {
-  return elements_;
-}
-
-string* StrVec::end() const {
-  return first_free_;
-}
+StrVec::~StrVec() { free(); }
 
 void StrVec::push_back(const string& s) {
   check_and_alloc(); // ensure that there is room for another element
@@ -74,6 +55,17 @@ void StrVec::push_back(string&& s) {
   check_and_alloc();
   alloc.construct(first_free_++, std::move(s));
 }
+
+inline size_t StrVec::size() const { return first_free_ - elements_; }
+
+inline size_t StrVec::capacity() const { return cap_ - elements_; }
+
+inline string* StrVec::begin() const { return elements_; }
+
+inline string* StrVec::end() const { return first_free_; }
+
+// -- private --
+allocator<string> StrVec::alloc; // static member data
 
 void StrVec::check_and_alloc() {
   if (size() == capacity()) {

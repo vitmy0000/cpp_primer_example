@@ -20,7 +20,6 @@ class StrVec {
   size_t capacity() const;
   std::string* begin() const;
   std::string* end() const;
-
  private:
   static std::allocator<std::string> alloc; // allocate the elements
   void check_and_alloc(); // used by functions that add elements to a StrVec
