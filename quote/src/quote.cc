@@ -18,4 +18,12 @@ double Quote::net_price(size_t n) const {
   return n * sale_price_;
 }
 
+Quote* Quote::clone() const & {
+  return new Quote(*this);
+}
+
+Quote* Quote::clone() && {
+  return new Quote(std::move(*this));
+}
+
 } // cpp_primer

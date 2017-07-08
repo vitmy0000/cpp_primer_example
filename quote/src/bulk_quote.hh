@@ -10,6 +10,8 @@ class BulkQuote : public Quote {
   BulkQuote();
   BulkQuote(const std::string&, double, std::size_t, double);
   virtual double net_price(std::size_t) const override;
+  virtual BulkQuote* clone() const & override;
+  virtual BulkQuote* clone() && override;
  private:
   std::size_t min_qty_ = 0;
   double discount_ = 0.0;

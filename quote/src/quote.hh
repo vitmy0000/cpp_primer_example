@@ -1,6 +1,7 @@
 #ifndef QUOTE_HH
 #define QUOTE_HH
 
+#include <iostream>
 #include <string>
 
 namespace cpp_primer {
@@ -11,6 +12,8 @@ class Quote {
   Quote(const std::string&, double);
   virtual ~Quote();
   virtual double net_price(std::size_t n) const;
+  virtual Quote* clone() const &;
+  virtual Quote* clone() &&;
   // getters & setters
   std::string isbn() const;
  private:

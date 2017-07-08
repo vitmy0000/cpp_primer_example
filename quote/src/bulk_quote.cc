@@ -21,4 +21,12 @@ double BulkQuote::net_price(size_t n) const {
   }
 }
 
+BulkQuote* BulkQuote::clone() const & {
+  return new BulkQuote(*this);
+}
+
+BulkQuote* BulkQuote::clone() && {
+  return new BulkQuote(std::move(*this));
+}
+
 } // cpp_primer
