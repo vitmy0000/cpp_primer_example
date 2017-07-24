@@ -1,0 +1,22 @@
+{
+    "*.cc": {"template": ["",
+                          "namespace cpp_primer {",
+                          "",
+                          "",
+                          "",
+                          "} // namespace: cpp_primer"
+                        ]},
+    "*.hh": {"template": ["#ifndef {uppercase}_HH",
+                          "#define {uppercase}_HH",
+                          "",
+                          "namespace cpp_primer {",
+                          "",
+                          "",
+                          "",
+                          "} // namespace: cpp_primer",
+                          "",
+                          "#endif //{uppercase}_HH"
+                        ]},
+    "src/*.cc": {"alternate": "src/{}.hh"},
+    "src/*.hh": {"alternate": "src/{}.cc"}
+}
