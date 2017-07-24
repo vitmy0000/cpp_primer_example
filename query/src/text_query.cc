@@ -1,8 +1,11 @@
+#include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <string>
 #include <set>
+
+#include <boost/algorithm/string.hpp>
 
 #include "text_query.hh"
 #include "query_result.hh"
@@ -24,6 +27,7 @@ TextQuery::TextQuery(ifstream& is) : file_{new vector<string>} {
     istringstream line(text);
     string word;
     while (line >> word) {
+      boost::trim_if(word, boost::is_punct());
       auto& lines = word_map_[word];
       if (!lines) {
         lines.reset(new set<line_no>);
