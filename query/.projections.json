@@ -1,5 +1,7 @@
 {
     "*.cc": {"template": ["",
+                          "#include \"{}.hh\"",
+                          "",
                           "namespace cpp_primer {",
                           "",
                           "",
