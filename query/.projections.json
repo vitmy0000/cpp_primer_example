@@ -1,6 +1,6 @@
 {
     "*.cc": {"template": ["",
-                          "#include \"{}.hh\"",
+                          "#include \"{basename}.hh\"",
                           "",
                           "namespace cpp_primer {",
                           "",
@@ -8,16 +8,20 @@
                           "",
                           "} // namespace: cpp_primer"
                         ]},
-    "*.hh": {"template": ["#ifndef {uppercase}_HH",
-                          "#define {uppercase}_HH",
+    "*.hh": {"template": ["#ifndef {basename|uppercase}_HH",
+                          "#define {basename|uppercase}_HH",
                           "",
                           "namespace cpp_primer {",
                           "",
-                          "",
+                          "class {basename|camelcase|capitalize} {",
+                          " public:",
+                          " protected:",
+                          " private:",
+                          "};",
                           "",
                           "} // namespace: cpp_primer",
                           "",
-                          "#endif //{uppercase}_HH"
+                          "#endif //{basename|uppercase}_HH"
                         ]},
     "src/*.cc": {"alternate": "src/{}.hh"},
     "src/*.hh": {"alternate": "src/{}.cc"}

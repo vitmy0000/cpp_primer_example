@@ -16,6 +16,15 @@ class QueryResult {
   QueryResult(std::string,
               std::shared_ptr<std::set<line_no>>,
               std::shared_ptr<std::vector<std::string>>);
+  std::shared_ptr<std::vector<std::string>> get_file() {
+    return file_;
+  }
+  std::set<line_no>::iterator begin() {
+    return lines_->begin();
+  }
+  std::set<line_no>::iterator end() {
+    return lines_->end();
+  }
  private:
   std::string sought_;
   std::shared_ptr<std::set<line_no>> lines_;

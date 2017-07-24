@@ -18,7 +18,7 @@ namespace cpp_primer {
 QueryResult::QueryResult(string sought,
                          shared_ptr<set<line_no>> lines,
                          shared_ptr<vector<string>> file)
-    : sought_{sought}, lines_{lines}, file_{file} {}
+    : sought_(sought), lines_(lines), file_(file) {}
 
 ostream& print(ostream& os, const QueryResult& qr) {
   os << qr.sought_ << " occurs " << qr.lines_->size() << " "
